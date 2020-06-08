@@ -38,7 +38,37 @@
           </div>
         </div>
       </ng-template>
-      
     </li>
   </ul>
 </div>
+
+
+
+<div class="card">
+  <div class="card-header">
+    <div class="float-left">
+      <h4>teste</h4> 
+    </div>
+    <div class="float-right">
+      <button type="button" class="btn btn-primary">Novo Curso</button>
+    </div>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{valorrecebido}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </li>
+  </ul>
+</div>
+
+  <button class="btn btn-outline-success my-2 my-sm-0" (click)="emitvalor('sdvvsdvd')" type="button" >Search</button>

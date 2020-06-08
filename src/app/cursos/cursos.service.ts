@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Curso } from './cursos-lista/cursosmodel';
 import { tap, delay } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { tap, delay } from 'rxjs/operators';
 export class CursosService {
 
   private readonly api : string =  `${environment.API}cursos`
+  private subject$ = new Subject<string>();
   
 
   constructor(
@@ -22,5 +24,15 @@ export class CursosService {
         delay(2000),
         tap(console.log)
       );
+    }
+
+    emitirValor(valor : string){
+      console.log("emitiu");
+      
+      this.subject$.next(valor)
+    }
+
+    getValor(){
+      return this.subject$.asObservable()
     }
 }
