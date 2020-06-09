@@ -5,6 +5,7 @@
     </div>
     <div class="float-right">
       <button type="button" class="btn btn-primary">Novo Curso</button>
+      <button style="margin-left: 10px;" type="button" class="btn btn-primary" (click)="AtualizaComponente()" >Atualizar</button>
     </div>
   </div>
   <ul class="list-group list-group-flush">
@@ -32,11 +33,16 @@
         </tbody>
       </table>
       <ng-template #loading>
-        <div class="d-flex justify-content-center">
-          <div class="spinner-border" role="status">
-            <span class="sr-only">Loading...</span>
+        <ng-container *ngIf="errormsg; else spinner">
+          {{errormsg}}
+        </ng-container>
+        <ng-template #spinner>
+          <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
           </div>
-        </div>
+        </ng-template>
       </ng-template>
     </li>
   </ul>
